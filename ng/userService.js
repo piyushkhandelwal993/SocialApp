@@ -1,5 +1,5 @@
 angular.module('app')
-.service('UserService',function($http){
+.service('UserService',function($http , $localStorage){
 	var svc = this;
 	svc.getUser= function(){
 		return $http.get('/api/users',{
@@ -13,8 +13,11 @@ angular.module('app')
 		}).then(function(val){
 			svc.token = val.data;
 			$http.defaults.headers.common['x-auth']= val.data;
+			$localStorage.token=val.data;
 			return svc.getUser();
 		});
 	};
-	
+	svc.loadLoggedInUser=function(){
+		return $http.get('/api/users');
+	}
 });
