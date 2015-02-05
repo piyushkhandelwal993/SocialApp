@@ -5,7 +5,6 @@ angular.module('app')
 		$scope.posts=posts;
 	});
 	$scope.addPosts = function(){
-		console.log(new Date());
 		if($scope.postBody){
 		PostService.createPosts({
 			username:'piyush',
