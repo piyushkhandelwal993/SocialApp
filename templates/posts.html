@@ -1,0 +1,15 @@
+<div class='container'>
+	<h1>Recent Posts</h1>
+	<div class='input container'>
+		<form role='form'>
+			<input class='form-control' type="text" ng-model='postBody' placeholder='Enter Your Post'/>
+			<input class='form-control' type="button" value="Add Post" ng-click="addPosts()"/>
+		</form>
+		<ul ng-model="posts">
+			<li ng-repeat='post in posts'>
+			<span class="postText">{{post.body}}</span>
+			<span class="postAuthor"><b>@{{post.username}}</b></span>
+			</li>
+		</ul>
+	</div> 
+</div>
